@@ -1,10 +1,7 @@
 import signal
 import sys
 import time
-import logging
 from typing import Iterable
-
-logging.basicConfig(filename='logs.log', level=logging.INFO, filemode="w")
 
 
 class Queueer:
@@ -24,7 +21,7 @@ class TestQueueer(Queueer):
 
     def enqueue(self):
         for i, _ in enumerate(self.objects):
-            logging.info(f'[+] Enfilerando {i}...')
+            print(f'[+] Enfilerando {i}...')
             time.sleep(2)
             self.last_idx_proc = i
 
@@ -32,16 +29,16 @@ class TestQueueer(Queueer):
         queued = self.objects[:self.last_idx_proc + 1]
         missing = self.objects[self.last_idx_proc + 1:]
 
-        logging.info(f'[*] Enfileirou {len(queued)} ids...')
-        logging.info(f'[*] Faltou enfileirar {len(missing)} ids...')
+        print(f'[*] Enfileirou {len(queued)} ids...')
+        print(f'[*] Faltou enfileirar {len(missing)} ids...')
 
         sys.exit(1)
 
 
 def execute():
-    logging.info("-" * 100)
-    logging.info("SINAIS SAÍDA NOS PROCESSOS DE ENFILEIRAMENTO".center(100))
-    logging.info("-" * 100)
+    print("-" * 100)
+    print("SINAIS SAÍDA NOS PROCESSOS DE ENFILEIRAMENTO".center(100))
+    print("-" * 100)
 
     queueer = TestQueueer([i for i in range(5000)])
 
