@@ -37,7 +37,8 @@ class TestQueueer(Queueer):
 
 def execute():
     print("-" * 100, flush=True)
-    print("SINAIS SAÍDA NOS PROCESSOS DE ENFILEIRAMENTO".center(100), flush=True)
+    print("SINAIS SAÍDA NOS PROCESSOS DE ENFILEIRAMENTO".center(100),
+          flush=True)
     print("-" * 100, flush=True)
 
     queueer = TestQueueer([i for i in range(5000)])
@@ -45,6 +46,7 @@ def execute():
     signal.signal(signal.SIGINT, queueer.handle_exit)
     signal.signal(signal.SIGTERM, queueer.handle_exit)
     signal.signal(signal.SIGQUIT, queueer.handle_exit)
+    signal.signal(signal.SIGABRT, queueer.handle_exit)
 
     while True:
         queueer.enqueue()
