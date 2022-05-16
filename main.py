@@ -22,7 +22,6 @@ class TestQueueer(Queueer):
     def enqueue(self):
         for i, _ in enumerate(self.objects):
             print(f'[+] Enfilerando {i}...')
-            time.sleep(2)
             self.last_idx_proc = i
 
     def handle_exit(self, *_):
