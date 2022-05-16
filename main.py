@@ -44,6 +44,7 @@ def execute():
 
     signal.signal(signal.SIGINT, queueer.handle_exit)
     signal.signal(signal.SIGTERM, queueer.handle_exit)
+    signal.signal(signal.SIGQUIT, queueer.handle_exit)
 
     while True:
         queueer.enqueue()
