@@ -1,4 +1,3 @@
-import pprint
 import signal
 import sys
 import time
@@ -32,8 +31,6 @@ class TestQueueer(Queueer):
 
         print(f'[*] Enfileirou {len(queued)} ids...')
         print(f'[*] Faltou enfileirar {len(missing)} ids...')
-
-        pprint.pprint(missing)
 
         sys.exit(1)
 
