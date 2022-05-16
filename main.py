@@ -53,4 +53,4 @@ print(__name__)
 
 
 if __name__ == '__main__':
-    execute()
+    print('olá mundo!')
