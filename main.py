@@ -4,9 +4,7 @@ import time
 import logging
 from typing import Iterable
 
-logging.basicConfig(filename='logs.log',
-                    level=logging.INFO,
-                    filemode="w")
+logging.basicConfig(filename='logs.log', level=logging.INFO, filemode="w")
 
 
 class Queueer:
@@ -55,4 +53,5 @@ def execute():
         time.sleep(5)
 
 
-execute()
+if __name__ == '__main__':
+    execute()
