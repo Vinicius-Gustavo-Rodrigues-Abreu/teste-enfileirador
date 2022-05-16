@@ -21,7 +21,7 @@ class TestQueueer(Queueer):
 
     def enqueue(self):
         for i, _ in enumerate(self.objects):
-            print(f'[+] Enfilerando {i}...')
+            print(f'[+] Enfilerando {i}...', flush=True)
             time.sleep(1.5)
             self.last_idx_proc = i
 
@@ -29,16 +29,16 @@ class TestQueueer(Queueer):
         queued = self.objects[:self.last_idx_proc + 1]
         missing = self.objects[self.last_idx_proc + 1:]
 
-        print(f'[*] Enfileirou {len(queued)} ids...')
-        print(f'[*] Faltou enfileirar {len(missing)} ids...')
+        print(f'[*] Enfileirou {len(queued)} ids...', flush=True)
+        print(f'[*] Faltou enfileirar {len(missing)} ids...', flush=True)
 
         sys.exit(1)
 
 
 def execute():
-    print("-" * 100)
-    print("SINAIS SAÍDA NOS PROCESSOS DE ENFILEIRAMENTO".center(100))
-    print("-" * 100)
+    print("-" * 100, flush=True)
+    print("SINAIS SAÍDA NOS PROCESSOS DE ENFILEIRAMENTO".center(100), flush=True)
+    print("-" * 100, flush=True)
 
     queueer = TestQueueer([i for i in range(5000)])
 
