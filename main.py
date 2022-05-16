@@ -25,7 +25,7 @@ class TestQueueer(Queueer):
             time.sleep(1.5)
             self.last_idx_proc = i
 
-    def handle_exit(self, *_):
+    def handle_exit(self, *args):
         queued = self.objects[:self.last_idx_proc + 1]
         missing = self.objects[self.last_idx_proc + 1:]
 
