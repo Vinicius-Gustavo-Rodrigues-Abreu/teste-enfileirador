@@ -49,6 +49,8 @@ def execute():
         queueer.enqueue()
         time.sleep(5)
 
+print(__name__)
+
 
 if __name__ == '__main__':
     execute()
